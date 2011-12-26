@@ -56,4 +56,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\Benchmark\Benchmark.csproj">
+      <Project>{0606B8E8-7B49-46FC-8407-5051D4CB2008}</Project>
+      <Name>Benchmark</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
