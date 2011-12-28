@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
-using Benchmark;
+using NLog;
 
-namespace NLog.mono
+namespace Benchmark
 {
 	class Program
 	{
@@ -12,33 +11,18 @@ namespace NLog.mono
 		{
 			Log.Info("Check write");
 
-			Calc("NCh_P0", NCh_P0);
-			Calc("NCh_P1", NCh_P1);
-			Calc("NCh_P3", NCh_P3);
-			Calc("PCh_P0", PCh_P0);
-			Calc("PCh_P1", PCh_P1);
-			Calc("PCh_P3", PCh_P3);
-			Calc("None  ", None);
+			Calc("N0", NCh_P0);
+			Calc("N1", NCh_P1);
+			Calc("N3", NCh_P3);
+			Calc("P0", PCh_P0);
+			Calc("P1", PCh_P1);
+			Calc("P3", PCh_P3);
+			Calc("Em", None);
 		}
-		
+
 		static void Calc(string name, Action<int> f)
 		{
-			GC.Collect();
-			GC.WaitForPendingFinalizers();
-			GC.Collect();
-			
-			double scale = 1000000000d; // ns
-			
-			int total = 10000;
-			int sums = 1000;
-			
-			var hist = Toolkit.CreateHistogram(f, total, sums);
-			Measure m = Measure.Create(hist, total, 0.95d);
-			
-			Console.WriteLine("{0}: {1:G4} ns (-{2:G4}|+{3:G4})", name,
-				m.Average * scale,
-				m.LDev * scale,
-				m.RDev * scale);
+			Toolkit.Calc("NLog_mono", name, f);
 		}
 		
 		static void None(int a1)

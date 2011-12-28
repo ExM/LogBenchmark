@@ -8,7 +8,8 @@ namespace Benchmark
 		public double Average { get; set; }
 		public double Min { get; set; }
 		public double Max { get; set; }
-		
+		public double Fullness { get; set; }
+
 		public double LDev
 		{
 			get
@@ -28,30 +29,29 @@ namespace Benchmark
 		public Measure()
 		{
 		}
-		
-		public static Measure Create(SortedList<double, int> hist, int total, double precision)
+
+		public static Measure Create(List<Point> hist, double precision)
 		{
 			Measure m = new Measure();
-			
-			double threshold = total * precision;
-			int sum = 0;
+
+			double fullness = 0;
 			double average = 0;
-			foreach(var pair in hist)
+			foreach(var p in hist)
 			{
-				if(sum == 0) // min value
-					m.Min = pair.Key;
-				sum += pair.Value;
-				average += pair.Value * pair.Key;
-				
-				if(sum > threshold)
+				if (fullness == 0) // min value
+					m.Min = p.Time;
+				fullness += p.Value;
+				average += p.Value * p.Time;
+
+				if (fullness > precision)
 				{
-					m.Max = pair.Key; // last value
+					m.Max = p.Time; // last value
 					break;
 				}
 			}
-			
-			m.Average = average / sum;
-			
+
+			m.Average = average / fullness;
+			m.Fullness = fullness;
 			return m;
 		}
 	}

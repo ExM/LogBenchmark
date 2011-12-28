@@ -1,21 +1,16 @@
 ﻿using System;
-using System.IO;
-using log4net;
-using log4net.Config;
+using NLog;
 
 namespace Benchmark
 {
 	class Program
 	{
-		private static readonly ILog Log = LogManager.GetLogger(typeof(Program));
+		private static Logger Log = LogManager.GetCurrentClassLogger();
 
 		static void Main(string[] args)
 		{
-			string dir = Path.GetDirectoryName(typeof(Program).Assembly.Location);
-			XmlConfigurator.Configure(new FileInfo(Path.Combine(dir, "log4net.config")));
-
 			Log.Info("Check write");
-			
+
 			Calc("N0", NCh_P0);
 			Calc("N1", NCh_P1);
 			Calc("N3", NCh_P3);
@@ -27,7 +22,7 @@ namespace Benchmark
 
 		static void Calc(string name, Action<int> f)
 		{
-			Toolkit.Calc("Log4Net_mono", name, f);
+			Toolkit.Calc("NLog_dotNet", name, f);
 		}
 		
 		static void None(int a1)
@@ -41,12 +36,12 @@ namespace Benchmark
 		
 		static void NCh_P1(int a1)
 		{
-			Log.DebugFormat("Test message: {0}", a1);
+			Log.Debug("Test message: {0}", a1);
 		}
 		
 		static void NCh_P3(int a1)
 		{
-			Log.DebugFormat("Test message: {0} {1} {2}", a1, a1, a1);
+			Log.Debug("Test message: {0} {1} {2}", a1, a1, a1);
 		}
 		
 		static void PCh_P0(int a1)
@@ -58,13 +53,13 @@ namespace Benchmark
 		static void PCh_P1(int a1)
 		{
 			if(Log.IsDebugEnabled)
-				Log.DebugFormat("Test message: {0}", a1);
+				Log.Debug("Test message: {0}", a1);
 		}
 		
 		static void PCh_P3(int a1)
 		{
 			if(Log.IsDebugEnabled)
-				Log.DebugFormat("Test message: {0} {1} {2}", a1, a1, a1);
+				Log.Debug("Test message: {0} {1} {2}", a1, a1, a1);
 		}
 	}
 }

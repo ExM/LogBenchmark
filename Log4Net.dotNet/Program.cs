@@ -2,6 +2,7 @@
 using System.IO;
 using log4net;
 using log4net.Config;
+using System.Reflection;
 
 namespace Benchmark
 {
@@ -27,7 +28,7 @@ namespace Benchmark
 
 		static void Calc(string name, Action<int> f)
 		{
-			Toolkit.Calc("Log4Net_mono", name, f);
+			Toolkit.Calc("Log4Net_dotNet", name, f);
 		}
 		
 		static void None(int a1)
