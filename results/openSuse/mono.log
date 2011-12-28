@@ -1,0 +1,28 @@
+Mono JIT compiler version 2.10.2 (tarball Mon Apr 18 15:12:52 UTC 2011)
+Copyright (C) 2002-2011 Novell, Inc and Contributors. www.mono-project.com
+	TLS:           __thread
+	SIGSEGV:       altstack
+	Notifications: epoll
+	Architecture:  amd64
+	Disabled:      none
+	Misc:          debugger softdebug 
+	LLVM:          yes(2.9svn-mono)
+	GC:            Included Boehm (with typed GC and Parallel Mark)
+NLog.mono
+2011-12-28 22:49:24.7283|INFO|Benchmark.Program|Check write
+N0	6,865 ns (-0,03459|+0,5254) F:0,9759
+N1	6,921 ns (-0,09107|+0,4789) F:0,956
+N3	7,575 ns (-0,03515|+0,5249) F:0,9657
+P0	4,351 ns (-0,01116|+0,00884) F:0,9539
+P1	5,075 ns (-0,01498|+0,535) F:0,9722
+P3	4,707 ns (-0,006995|+0,003005) F:0,9501
+Em	3,285 ns (-0,004808|+0,005192) F:0,9658
+Log4Net.mono
+2011-12-28 22:49:28,957 [1] INFO  Benchmark.Program Check write
+N0	46,77 ns (-4,027|+2,263) F:0,9544
+N1	89,79 ns (-33,08|+20,7) F:0,9501
+N3	159,8 ns (-33,1|+26,68) F:0,9503
+P0	43,89 ns (-5,063|+1,917) F:0,9525
+P1	44,28 ns (-4,745|+1,525) F:0,9543
+P3	44,8 ns (-5,264|+0,6664) F:0,9595
+Em	3,283 ns (-0,003252|+0,006748) F:0,9666
