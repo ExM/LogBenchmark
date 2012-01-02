@@ -8,7 +8,7 @@ namespace Benchmark
 		public double Average { get; set; }
 		public double Min { get; set; }
 		public double Max { get; set; }
-		public double Fullness { get; set; }
+		public long MinTime { get; set; }
 
 		public double LDev
 		{
@@ -51,8 +51,17 @@ namespace Benchmark
 			}
 
 			m.Average = average / fullness;
-			m.Fullness = fullness;
 			return m;
+		}
+
+		public string ToString(double scale, string unit)
+		{
+			return string.Format("{0:G4} {1} (-{2:G4}|+{3:G4}) min time:{4} tics",
+				Average * scale,
+				unit,
+				LDev * scale,
+				RDev * scale,
+				MinTime);
 		}
 	}
 }
