@@ -1,27 +1,13 @@
-Mono JIT compiler version 2.10.5 (tarball)
-Copyright (C) 2002-2011 Novell, Inc, Xamarin, Inc and Contributors. www.mono-project.com
-	TLS:           normal
-	SIGSEGV:       normal
-	Notification:  Thread + polling
-	Architecture:  x86
-	Disabled:      none
-	Misc:          softdebug 
-	LLVM:          supported, not enabled.
-	GC:            Included Boehm (with typed GC and Parallel Mark)
-NLog.mono 
-2011-12-28 18:08:33.1837|INFO|Benchmark.Program|Check write
-N0	7.801 ns (-0.4708|+0.1892) F:0.9555
-N1	8.475 ns (-0.4846|+0.1454) F:0.9531
-N3	8.745 ns (-0.05479|+0.1952) F:0.9505
-P0	4.065 ns (-0.335|+0.265) F:0.9769
-P1	3.939 ns (-0.2088|+0.1712) F:0.9505
-P3	4.077 ns (-0.3468|+0.2532) F:0.9784
-Em	3.735 ns (-0.03487|+0.1051) F:0.9687
-Log4Net.mono 
-N0	35.81 ns (-1.035|+3.195) F:0.9505
-N1	135.7 ns (-29.52|+43.98) F:0.9501
-N3	322.7 ns (-56.91|+37.76) F:0.9501
-P0	29.04 ns (-1.258|+1.232) F:0.9505
-P1	29.11 ns (-1.328|+1.292) F:0.9507
-P3	28.97 ns (-1.045|+1.195) F:0.9513
-Em	3.707 ns (-0.007147|+0.1029) F:0.9536
+2011-12-30 16:53:22,595 [1] INFO  LogBenchmark.Log4NetUse Check write
+2011-12-30 16:53:22.7253|INFO|LogBenchmark.NLogUse|Check write
+None_mono	Em_1	3.518 ns (-0.4475|+0.01245) min time:307 tics
+Log4Net_mono	N0_1	46.16 ns (-3.164|+1.336) min time:430 tics
+Log4Net_mono	N0_100	46.12 ns (-3.215|+1.685) min time:429 tics
+Log4Net_mono	N1_1	124.3 ns (-2.876|+3.524) min time:1214 tics
+Log4Net_mono	N3_1	310.8 ns (-38.94|+1101) min time:2175 tics
+Log4Net_mono	P0_1	39.46 ns (-3.128|+1.288) min time:436 tics
+NLog_mono	N0_1	7.196 ns (-0.3558|+0.2642) min time:342 tics
+NLog_mono	N0_100	7.284 ns (-1.144|+0.5364) min time:307 tics
+NLog_mono	N1_1	7.908 ns (-0.1083|+0.2717) min time:390 tics
+NLog_mono	N3_1	8.424 ns (-0.06425|+0.09575) min time:418 tics
+NLog_mono	P0_1	4.098 ns (-0.01798|+0.02202) min time:408 tics
