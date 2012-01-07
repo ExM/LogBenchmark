@@ -1,0 +1,13 @@
+2012-01-02 17:06:14,215 [1] INFO  LogBenchmark.Log4NetUse Check write
+2012-01-02 17:06:14.3298|INFO|LogBenchmark.NLogUse|Check write
+None_mono	Em_1	3,285 ns (-0,004609|+0,005391) min time:328 tics
+Log4Net_mono	N0_1	79,98 ns (-36,48|+5,516) min time:435 tics
+Log4Net_mono	N0_100	77,97 ns (-34,57|+11,33) min time:434 tics
+Log4Net_mono	N1_1	92,35 ns (-34,85|+13,25) min time:575 tics
+Log4Net_mono	N3_1	141,2 ns (-51,69|+848,2) min time:716 tics
+Log4Net_mono	P0_1	69,58 ns (-30,16|+4,755) min time:473 tics
+NLog_mono	N0_1	6,924 ns (-0,003905|+0,01609) min time:346 tics
+NLog_mono	N0_100	6,924 ns (-0,004256|+0,01574) min time:346 tics
+NLog_mono	N1_1	6,926 ns (-0,00649|+0,05351) min time:346 tics
+NLog_mono	N3_1	7,635 ns (-0,01537|+0,004634) min time:381 tics
+NLog_mono	P0_1	4,351 ns (-0,01131|+0,008688) min time:434 tics
